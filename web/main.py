@@ -355,39 +355,6 @@ def sktime_plot(series, labels, pred_ints, alpha):
         st.pyplot(fig)
 
 
-def immune_progress_bar(df, vac_col):
-    # Progress bar - pop immune
-    immune_pct = round(df["Estimated Population Immunity %"].iloc[-1], 2)
-    st.subheader("Estimated Population Immunity: {}%".format(immune_pct))
-    st.progress(immune_pct / 100)
-
-    # recovered = df['Cumulative Recovered Infections Estimate'].iloc[-1] / df['Census2019'] * 100
-    # recovered = round(recovered.iloc[-1], 2)
-    # st.subheader("Estimated Population Immunity from Recovered Infections: {}%".format(recovered))
-    # st.progress(recovered / 100)
-    #
-    # recovered = df[vac_col].iloc[-1] / df['Census2019'] * 100
-    # recovered = round(recovered.iloc[-1], 2)
-    # st.subheader("Estimated Population Immunity from Vaccinations (1st Dose): {}%".format(recovered))
-    # st.progress(recovered / 100)
-
-
-def last_peak_progress_bar(df):
-    # Find immunity at last peak
-    peaks, _ = find_peaks(df["hospitalizedCurrently"])  # todo winter 2020/2021 only
-    peak_date = df.index[peaks[-1]]
-    found_thresh = df["Estimated Population Immunity %"].iloc[peaks[-1]]
-
-    # Progress bar - estimate
-    st.subheader(
-        "Hospitalizations began to decline after {} when the estimated population immunity was {}%.".format(
-            peak_date._date_repr, round(found_thresh, 2)
-        )
-    )
-    st.progress(found_thresh / 100)
-    # todo x% of immunity was from recovered infections, vaccines, pre-existing immunity from other coronaviruses.
-
-
 def matplotlib_charts(df, cols):
     plt.style.use("seaborn")
     # plt.style.use("seaborn-whitegrid")
@@ -589,26 +556,3 @@ if __name__ == "__main__":
         st.title("Интерактивный корреляционный обозреватель")
         st.write("Choose two variables and see if they are correlated.")
         cols, a, b, lookback = get_shifted_correlations(df, cols)
-
-    st.markdown(
-        """
-        ### Sources 
-        Data is pulled daily from https://covidtracking.com. 
-        Mobility data is from [google.com/covid19/mobility](https://www.google.com/covid19/mobility/). 
-        Vaccination data is from the CDC and collected at https://github.com/youyanggu/covid19-cdc-vaccination-data
-        """
-    )
-    st.markdown(
-        "Infection fatality rate and true infections are estimated using the formula described by https://covid19-projections.com/estimating-true-infections-revisited:"
-    )
-    st.latex("prevalenceRatio({day_{i}}) = (1500/(day_i+50)) * positivityRate^{0.5}+2")
-
-    st.write(
-        "See this app's source code at https://github.com/remingm/covid19-correlations-forecast"
-    )
-    st.markdown("Created by [Michael Remington](http://www.michael-remington.com).")
-    st.write(
-        "Disclaimer: This site was made by a data scientist, not an infectious disease expert."
-    )
-
-    st.markdown("![visitors](https://visitor-badge.glitch.me/badge?page_id=remingm.covid)")
