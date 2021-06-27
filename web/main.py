@@ -14,6 +14,8 @@ import streamlit as st
 from matplotlib.backends.backend_agg import RendererAgg
 from numpy import nan as Nan
 from scipy.signal import find_peaks
+from scipy import stats
+from scipy.stats import rankdata
 from sklearn.preprocessing import minmax_scale, normalize
 from sktime.forecasting.arima import AutoARIMA
 from sktime.forecasting.base import ForecastingHorizon
@@ -69,7 +71,18 @@ def find_max_correlation(col, col2):
     :param col2: Column 2
     :return: Best r, best shift
     """
-    correl = col.corr(col2)
+    test = col2.size
+    if col2.size > 2:
+        shapiro_test_col2 = stats.shapiro(col2)
+    else:
+        shapiro_test_col2 = stats.shapiro(col)
+    shapiro_test_col = stats.shapiro(col)
+    if shapiro_test_col2.pvalue < 0.05 and shapiro_test_col.pvalue < 0.05:
+        col = rankdata(col)
+        col2 = rankdata(col2)
+        correl = col.corrwith(col2, method='kendall')
+    else:
+        correl = col.corr(col2)
     best_cor = correl
     best_i = 1
 
@@ -84,12 +97,24 @@ def plot_cor(col, col2, best_i, best_cor):
     :param best_i:
     :param best_cor:
     """
-    # st.line_chart({col.name: col.shift(best_i), col2.name: col2})
+    correl = round(best_cor, 2);
+
     st.text(
         "{} и {}\nзначение корреляции r = {}".format(
-            col.name, col2.name, round(best_cor, 2)
+            col.name, col2.name, correl
         )
     )
+    if abs(correl) <= 0.3:
+        st.text("Связь очень слабая")
+    elif abs(correl) <= 0.5:
+        st.text("Связь слабая")
+    elif abs(correl) <= 0.7:
+        st.text("Связь средняя")
+    elif abs(correl) <= 0.9:
+        st.text("Связь высокая")
+    elif abs(correl) <= 1:
+        st.text("Связь очень высокая")
+
 
     # altair chart
     src = pd.DataFrame({col.name: col, col2.name: col2}).reset_index()
@@ -115,8 +140,8 @@ def get_shifted_correlations(df, cols):
     :param cols:
     :return:
     """
-    a = st.selectbox("Does this", cols, index=3)
-    b = st.selectbox("Correlate with this?", cols, index=2)
+    a = st.selectbox("Коррелирует ли этот показатель", cols, index=3)
+    b = st.selectbox("С этим?", cols, index=2)
     lb = st.slider(
         "Выберите временной промежуток для корреляционного анализа",
         min_value=int(df.index.min()) + 1,
@@ -269,63 +294,6 @@ def plot_forecast(lines, cors_table):
     st.line_chart(df2, use_container_width=True)
     # plt.style.use('bmh')
     # st.write(df2.plot().get_figure())
-
-
-@st.cache()
-def compute_arima(df, colname, days, oos):
-    """
-    Must do computation in separate function for streamlit caching.
-
-    :param df:
-    :param colname:
-    :param days:
-    :param oos: Out of sample forecast.
-    :return:
-    """
-    y = df[colname].dropna()
-    if oos:
-        # Forecast OOS
-        range = pd.date_range(
-            start=y.index[-1] + datetime.timedelta(days=1),
-            end=y.index[-1] + datetime.timedelta(days=days),
-        )
-        fh = ForecastingHorizon(range, is_relative=False)
-        forecaster = AutoARIMA(suppress_warnings=True)
-        forecaster.fit(y)
-        alpha = 0.05  # 95% prediction intervals
-        y_pred, pred_ints = forecaster.predict(fh, return_pred_int=True, alpha=alpha)
-        return [y, y_pred], ["y", "y_pred"], pred_ints, alpha
-    else:
-        y_train, y_test = temporal_train_test_split(y, test_size=days)
-        fh = ForecastingHorizon(y_test.index, is_relative=False)
-        forecaster = AutoARIMA(suppress_warnings=True)
-        forecaster.fit(y_train)
-        alpha = 0.05  # 95% prediction intervals
-        y_pred, pred_ints = forecaster.predict(fh, return_pred_int=True, alpha=alpha)
-        return (
-            [y_train, y_test, y_pred],
-            ["y_train", "y_test", "y_pred"],
-            pred_ints,
-            alpha,
-        )
-
-
-def timeseries_forecast(df, colname, days=14):
-    """
-    ARIMA forecast wrapper
-
-    :param df: Dataframe from process_data()
-    :param colname: Name of forecasted variable
-    :param days_back: Lookback when validating, and lookahead for out of sample forecast.
-    """
-    st.subheader("Past Performance")
-    sktime_plot(*compute_arima(df, colname, days, False))
-
-    st.subheader("Forecast")
-    sktime_plot(*compute_arima(df, colname, days, True))
-    # y_pred, _, pred_ints, _ = compute_arima(df, colname, days, True)
-    # st.line_chart(pd.DataFrame(y_pred).transpose())
-
 
 def sktime_plot(series, labels, pred_ints, alpha):
     """
@@ -502,8 +470,7 @@ if __name__ == "__main__":
         mode = st.radio(
             "Меню",
             [
-                "Корреляционный обозреватель",
-                "Прогноз корреляций",
+                "Исследование корреляции",
             ],
         )
         st.subheader("Выбрать регион или все регионы:")
@@ -511,11 +478,15 @@ if __name__ == "__main__":
         locations = np.append(["Алтайский край всего"], states)
         state = st.selectbox("Регион", states)
 
-    # https://docs.streamlit.io/en/stable/troubleshooting/caching_issues.html#how-to-fix-the-cached-object-mutated-warning
     df = copy.deepcopy(process_data(all_states, state))
     df_arima = copy.deepcopy(df)
 
-    if mode == "Прогноз корреляций":
+    if mode == "Исследование корреляции":
+        st.title("Интерактивное исследование корреляции")
+        st.write("Выбери два показателя и посмотри, коррелируют ли они")
+        cols, a, b, lookback = get_shifted_correlations(df, cols)
+
+    elif mode == "Прогноз корреляций":
         st.title("Прогноз корреляций")
         # df,cols= rename_columns(df)
         b = st.selectbox("Выберите переменную:", cols, index=2)
@@ -552,7 +523,3 @@ if __name__ == "__main__":
         Ordinary Least Squares regression is also used to scale each series from the *a* column as well as the final forecast.
         """
         )
-    elif mode == "Корреляционный обозреватель":
-        st.title("Интерактивный корреляционный обозреватель")
-        st.write("Choose two variables and see if they are correlated.")
-        cols, a, b, lookback = get_shifted_correlations(df, cols)
