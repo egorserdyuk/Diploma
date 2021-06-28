@@ -68,15 +68,6 @@ def read_file(contents, filename, date):
             data=df.to_dict('records'),
             columns=[{'name': i, 'id': i} for i in df.columns]
         ),
-
-        html.Hr(),  # horizontal line
-
-        # For debugging, display the raw contents provided by the web browser
-        html.Div('Raw Content'),
-        html.Pre(contents[0:200] + '...', style={
-            'whiteSpace': 'pre-wrap',
-            'wordBreak': 'break-all'
-        })
     ])
 
 
