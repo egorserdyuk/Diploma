@@ -3,7 +3,15 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "fill": "#555555",
+        "fill-opacity": 0.5,
+        "County": "Krai",
+		"id": 1
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -3440,7 +3448,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Krutikhinsky"
+        "County": "Krutikhinsky",
+		"id": 2
       },
       "geometry": {
         "type": "Polygon",
@@ -3590,7 +3599,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Pankrushihinsky"
+        "County": "Pankrushihinsky",
+		"id": 3
       },
       "geometry": {
         "type": "Polygon",
@@ -3760,7 +3770,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Burlinsky"
+        "County": "Burlinsky",
+		"id": 4
       },
       "geometry": {
         "type": "Polygon",
@@ -4070,7 +4081,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Nemetsky"
+        "County": "Nemetsky",
+		"id": 5
       },
       "geometry": {
         "type": "Polygon",
@@ -4192,7 +4204,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Khabarsky"
+        "County": "Khabarsky",
+		"id": 6
       },
       "geometry": {
         "type": "Polygon",
@@ -4414,7 +4427,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Slavgorod"
+        "County": "Slavgorod",
+		"id": 7
       },
       "geometry": {
         "type": "Polygon",
@@ -4624,7 +4638,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Tabunsky"
+        "County": "Tabunsky",
+		"id": 8
       },
       "geometry": {
         "type": "Polygon",
@@ -4782,7 +4797,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Kulundinsky"
+        "County": "Kulundinsky",
+		"id": 9
       },
       "geometry": {
         "type": "Polygon",
@@ -4928,7 +4944,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Uglovsky"
+        "County": "Uglovsky",
+		"id": 10
       },
       "geometry": {
         "type": "Polygon",
@@ -5082,7 +5099,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Mikhaelovsky"
+        "County": "Mikhaelovsky",
+		"id": 11
       },
       "geometry": {
         "type": "Polygon",
@@ -5200,7 +5218,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Klyuchevsky"
+        "County": "Klyuchevsky",
+		"id": 12
       },
       "geometry": {
         "type": "Polygon",
@@ -5362,7 +5381,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Rubtsovsky"
+        "County": "Rubtsovsky",
+		"id": 13
       },
       "geometry": {
         "type": "Polygon",
@@ -5592,7 +5612,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Loktevsky"
+        "County": "Loktevsky",
+		"id": 14
       },
       "geometry": {
         "type": "Polygon",
@@ -5730,7 +5751,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Tretyakovsky"
+        "County": "Tretyakovsky",
+		"id": 15
       },
       "geometry": {
         "type": "Polygon",
@@ -5956,7 +5978,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Zmeinogorsky"
+        "County": "Zmeinogorsky",
+		"id": 16
       },
       "geometry": {
         "type": "Polygon",
@@ -6222,7 +6245,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Charyshsky"
+        "County": "Charyshsky",
+		"id": 17
       },
       "geometry": {
         "type": "Polygon",
@@ -6628,7 +6652,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Soloneshensky"
+        "County": "Soloneshensky",
+		"id": 18
       },
       "geometry": {
         "type": "Polygon",
@@ -6838,7 +6863,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Altaysky"
+        "County": "Altaysky",
+		"id": 19
       },
       "geometry": {
         "type": "Polygon",
@@ -7160,7 +7186,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Sovetsky"
+        "County": "Sovetsky",
+		"id": 20
       },
       "geometry": {
         "type": "Polygon",
@@ -7342,7 +7369,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Krasnogorsky"
+        "County": "Krasnogorsky",
+		"id": 21
       },
       "geometry": {
         "type": "Polygon",
@@ -7660,7 +7688,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Soltonsky"
+        "County": "Soltonsky",
+		"id": 22
       },
       "geometry": {
         "type": "Polygon",
@@ -8042,7 +8071,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Zalesovsky"
+        "County": "Zalesovsky",
+		"id": 23
       },
       "geometry": {
         "type": "Polygon",
@@ -8260,7 +8290,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Talmensky"
+        "County": "Talmensky",
+		"id": 24
       },
       "geometry": {
         "type": "Polygon",
@@ -8594,7 +8625,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Kamensky"
+        "County": "Kamensky",
+		"id": 25
       },
       "geometry": {
         "type": "Polygon",
@@ -8816,7 +8848,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Shelabolikhinsky"
+        "County": "Shelabolikhinsky",
+		"id": 26
       },
       "geometry": {
         "type": "Polygon",
@@ -9162,7 +9195,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Zarinsky"
+        "County": "Zarinsky",
+		"id": 27
       },
       "geometry": {
         "type": "Polygon",
@@ -9404,7 +9438,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Togulsky"
+        "County": "Togulsky",
+		"id": 28
       },
       "geometry": {
         "type": "Polygon",
@@ -9578,7 +9613,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Eltsovsky"
+        "County": "Eltsovsky",
+		"id": 29
       },
       "geometry": {
         "type": "Polygon",
@@ -9896,7 +9932,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Kytmanovsky"
+        "County": "Kytmanovsky",
+		"id": 30
       },
       "geometry": {
         "type": "Polygon",
@@ -10074,7 +10111,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Biysky"
+        "County": "Biysk",
+		"id": 31
       },
       "geometry": {
         "type": "Polygon",
@@ -10192,7 +10230,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Biysky"
+        "County": "Biysky",
+		"id": 31
       },
       "geometry": {
         "type": "Polygon",
@@ -10366,7 +10405,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Tselinny"
+        "County": "Tselinny",
+		"id": 32
       },
       "geometry": {
         "type": "Polygon",
@@ -10572,7 +10612,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Barnaul"
+        "County": "Barnaul",
+		"id": 33
       },
       "geometry": {
         "type": "Polygon",
@@ -10762,7 +10803,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Kalmansky"
+        "County": "Kalmansky",
+		"id": 34
       },
       "geometry": {
         "type": "Polygon",
@@ -10876,7 +10918,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Pavlovsky"
+        "County": "Pavlovsky",
+		"id": 35
       },
       "geometry": {
         "type": "Polygon",
@@ -11038,7 +11081,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Kosikhinsky"
+        "County": "Kosikhinsky",
+		"id": 36
       },
       "geometry": {
         "type": "Polygon",
@@ -11192,7 +11236,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Tyumentsevsky"
+        "County": "Tyumentsevsky",
+		"id": 37
       },
       "geometry": {
         "type": "Polygon",
@@ -11406,7 +11451,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Rebrikhinsky"
+        "County": "Rebrikhinsky",
+		"id": 38
       },
       "geometry": {
         "type": "Polygon",
@@ -11528,7 +11574,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Topchikhinsky"
+        "County": "Topchikhinsky",
+		"id": 39
       },
       "geometry": {
         "type": "Polygon",
@@ -11730,7 +11777,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Troitsky"
+        "County": "Troitsky",
+		"id": 40
       },
       "geometry": {
         "type": "Polygon",
@@ -11924,7 +11972,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Zonalny"
+        "County": "Zonalny",
+		"id": 41
       },
       "geometry": {
         "type": "Polygon",
@@ -12058,7 +12107,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Pervomaysky"
+        "County": "Pervomaysky",
+		"id": 42
       },
       "geometry": {
         "type": "Polygon",
@@ -12384,7 +12434,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Suetsky"
+        "County": "Suetsky",
+		"id": 43
       },
       "geometry": {
         "type": "Polygon",
@@ -12550,7 +12601,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Blagoveshensky"
+        "County": "Blagoveshensky",
+		"id": 44
       },
       "geometry": {
         "type": "Polygon",
@@ -12904,7 +12956,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Zavyalovsky"
+        "County": "Zavyalovsky",
+		"id": 45
       },
       "geometry": {
         "type": "Polygon",
@@ -13082,7 +13135,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Baevsky"
+        "County": "Baevsky",
+		"id": 46
       },
       "geometry": {
         "type": "Polygon",
@@ -13240,7 +13294,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Kuryinsky"
+        "County": "Kuryinsky",
+		"id": 47
       },
       "geometry": {
         "type": "Polygon",
@@ -13486,7 +13541,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Ust-Pristansky"
+        "County": "Ust-Pristansky",
+		"id": 48
       },
       "geometry": {
         "type": "Polygon",
@@ -13652,7 +13708,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Smolensky"
+        "County": "Smolensky",
+		"id": 49
       },
       "geometry": {
         "type": "Polygon",
@@ -13866,7 +13923,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Bistroistokinsky"
+        "County": "Bistroistokinsky",
+		"id": 50
       },
       "geometry": {
         "type": "Polygon",
@@ -14064,7 +14122,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Petropavlovsky"
+        "County": "Petropavlovsky",
+		"id": 51
       },
       "geometry": {
         "type": "Polygon",
@@ -14234,7 +14293,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Pospelikhinsky"
+        "County": "Pospelikhinsky",
+		"id": 52
       },
       "geometry": {
         "type": "Polygon",
@@ -14420,7 +14480,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Rodinsky"
+        "County": "Rodinsky",
+		"id": 53
       },
       "geometry": {
         "type": "Polygon",
@@ -14638,7 +14699,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Romanovsky"
+        "County": "Romanovsky",
+		"id": 54
       },
       "geometry": {
         "type": "Polygon",
@@ -14788,7 +14850,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Mamontovsky"
+        "County": "Mamontovsky",
+		"id": 55
       },
       "geometry": {
         "type": "Polygon",
@@ -14942,7 +15005,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Novoegorievsky"
+        "County": "Novoegorievsky",
+		"id": 56
       },
       "geometry": {
         "type": "Polygon",
@@ -15088,7 +15152,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Novichikhinsky"
+        "County": "Novichikhinsky",
+		"id": 57
       },
       "geometry": {
         "type": "Polygon",
@@ -15254,7 +15319,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Volchihinsky"
+        "County": "Volchihinsky",
+		"id": 58
       },
       "geometry": {
         "type": "Polygon",
@@ -15448,7 +15514,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Aleysky"
+        "County": "Aleysky",
+		"id": 59
       },
       "geometry": {
         "type": "Polygon",
@@ -15642,7 +15709,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Shipunovsky"
+        "County": "Shipunovsky",
+		"id": 60
       },
       "geometry": {
         "type": "Polygon",
@@ -16079,7 +16147,8 @@
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "County": "Ust-Kalmansky"
+        "County": "Ust-Kalmansky",
+		"id": 61
       },
       "geometry": {
         "type": "Polygon",
