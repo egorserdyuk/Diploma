@@ -4,6 +4,10 @@ body {
     background-color: #F7F7F7;
 }
 
+.h4 {
+    text-align: center;
+}
+
 .header {
     background-color: #222222;
     height: 288px;
