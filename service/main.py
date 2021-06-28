@@ -60,29 +60,6 @@ def read_file(contents, filename, date):
             'There was an error processing this file.'
         ])
 
-    dates = df.Date.values.tolist()
-
-    if min(dates) < max(dates):
-        fig = go.Figure(px.choropleth_mapbox(df, geojson=geojson, color='Data',
-                                             locations='County', featureidkey="properties.County",
-                                             color_continuous_scale="Viridis",
-                                             range_color=(0, df.Data.max()),
-                                             center={"lat": 52.78, "lon": 83.22},
-                                             mapbox_style="carto-positron", opacity=0.5, zoom=5,
-                                             animation_frame='Date'))
-        fig.update_geos(fitbounds="locations", visible=False)
-        fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
-
-    else:
-        fig = go.Figure(px.choropleth_mapbox(df, geojson=geojson, color='Data',
-                                             locations='County', featureidkey="properties.County",
-                                             color_continuous_scale="Viridis",
-                                             range_color=(0, df.Data.max()),
-                                             center={"lat": 52.78, "lon": 83.22},
-                                             mapbox_style="carto-positron", opacity=0.5, zoom=5))
-        fig.update_geos(fitbounds="locations", visible=False)
-        fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
-
     return html.Div([
         html.H5(filename),
         html.H6(datetime.datetime.fromtimestamp(date)),
@@ -168,8 +145,7 @@ def update_output(list_of_contents, list_of_names, list_of_dates):
     if list_of_contents is not None:
         children = [
             read_file(c, n, d) for c, n, d in
-            zip(list_of_contents, list_of_names, list_of_dates)
-        ]
+            zip(list_of_contents, list_of_names, list_of_dates)]
         return children
 
 
