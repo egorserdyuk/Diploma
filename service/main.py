@@ -30,7 +30,7 @@ world_path = 'data/' + 'map.geojson'
 with open(world_path) as f:
     geojson = json.load(f)
 
-df = pd.read_csv("data/test.csv", dtype={"County": str})
+df = pd.read_csv("data/test3.csv", dtype={"County": str})
 fig = go.Figure(px.choropleth_mapbox(df, geojson=geojson, color='Data',
                                      locations='County', featureidkey="properties.County",
                                      color_continuous_scale="Viridis",
@@ -51,6 +51,30 @@ def read_file(contents, filename, date):
             # Assume that the user uploaded a CSV file
             df = pd.read_csv(
                 io.StringIO(decoded.decode('utf-8')))
+
+            YEARS = []
+            dates = df.Date.values.tolist()
+            YEARS += dates
+
+            if min(YEARS) < max(YEARS):
+                fig = go.Figure(px.choropleth_mapbox(df, geojson=geojson, color='Data',
+                                                     locations='County', featureidkey="properties.County",
+                                                     color_continuous_scale="Viridis",
+                                                     range_color=(0, df.Data.max()),
+                                                     center={"lat": 52.78, "lon": 83.22},
+                                                     mapbox_style="carto-positron", opacity=0.5, zoom=5,
+                                                     animation_frame='Date'))
+                fig.update_geos(fitbounds="locations", visible=False)
+                fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
+            else:
+                fig = go.Figure(px.choropleth_mapbox(df, geojson=geojson, color='Data',
+                                                     locations='County', featureidkey="properties.County",
+                                                     color_continuous_scale="Viridis",
+                                                     range_color=(0, df.Data.max()),
+                                                     center={"lat": 52.78, "lon": 83.22},
+                                                     mapbox_style="carto-positron", opacity=0.5, zoom=5))
+                fig.update_geos(fitbounds="locations", visible=False)
+                fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
         elif 'xls' or 'xlsx' in filename:
             # Assume that the user uploaded an excel file
             df = pd.read_excel(io.BytesIO(decoded))
@@ -60,7 +84,7 @@ def read_file(contents, filename, date):
             'There was an error processing this file.'
         ])
 
-    return html.Div([
+    return fig, html.Div([
         html.H5(filename),
         html.H6(datetime.datetime.fromtimestamp(date)),
 
