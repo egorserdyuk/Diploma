@@ -30,13 +30,13 @@ world_path = 'data/' + 'map.geojson'
 with open(world_path) as f:
     geojson = json.load(f)
 
-df = pd.read_csv("data/test3.csv", dtype={"County": str})
+df = pd.read_csv("data/HIV.csv", dtype={"County": str})
 fig = go.Figure(px.choropleth_mapbox(df, geojson=geojson, color='Data',
                                      locations='County', featureidkey="properties.County",
                                      color_continuous_scale="Viridis",
                                      range_color=(0, df.Data.max()),
                                      center={"lat": 52.78, "lon": 83.22},
-                                     mapbox_style="carto-positron", opacity=0.5, zoom=5, animation_frame='Date'))
+                                     mapbox_style="carto-positron", opacity=0.5, zoom=5))
 fig.update_geos(fitbounds="locations", visible=False)
 fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
 
@@ -165,4 +165,4 @@ def update_output(list_of_contents, list_of_names, list_of_dates):
 
 
 if __name__ == '__main__':
-    app.run_server(debug=False, use_reloader=True)
+    app.run_server(debug=True, use_reloader=True)
