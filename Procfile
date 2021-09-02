@@ -1,1 +1,1 @@
-web: python data\main.py
+web: gunicorn .\data\app:server
