@@ -1,0 +1,1 @@
+web: python data\main.py

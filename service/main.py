@@ -30,7 +30,7 @@ world_path = 'data/' + 'map.geojson'
 with open(world_path) as f:
     geojson = json.load(f)
 
-df = pd.read_csv("data/test.csv", dtype={"County": str})
+df = pd.read_csv("data/HIV.csv", dtype={"County": str})
 fig = go.Figure(px.choropleth_mapbox(df, geojson=geojson, color='Data',
                                      locations='County', featureidkey="properties.County",
                                      color_continuous_scale="Viridis",
