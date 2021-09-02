@@ -1,1 +1,1 @@
-web: gunicorn .\data\app:server
+web: gunicorn .\data\main:server
