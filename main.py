@@ -3,6 +3,7 @@ import base64
 import datetime
 import io
 
+import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
 import dash
@@ -39,6 +40,11 @@ fig = go.Figure(px.choropleth_mapbox(df, geojson=geojson, color='Data',
                                      mapbox_style="carto-positron", opacity=0.5, zoom=5))
 fig.update_geos(fitbounds="geojson", visible=False)
 fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
+
+
+def centroid(x, y):
+    centroid_coordiantes = np.dot(x, y) / np.sum(y)
+    return centroid_coordiantes
 
 
 def read_file(contents, filename, date):
