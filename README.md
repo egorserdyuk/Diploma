@@ -103,5 +103,5 @@ df = pd.read_csv("data/HIV.csv", dtype={"County": str})  # Заменяем на
 |Volchihinsky|Волчихинский|58|
 |Aleysky|Алейский|59|
 |Shipunovsky|Шипуновский|60|
-|Novoshipunovo|???|61|
+|Krasnoshekovsky|Краснощековский|61|
 |Ust-Kalmansky|Усть-Калманский|62|

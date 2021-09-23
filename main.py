@@ -21,7 +21,7 @@ mapbox_access_token = "pk.eyJ1IjoidGhlY29vbGR1bXAiLCJhIjoiY2txZjBieGl6MTlhNDJwbm
 geodata_path = 'data/' + 'map_points.csv'
 geodata = pd.read_csv(geodata_path, dtype={"County": str})
 
-df = pd.read_csv("data/HIV.csv", dtype={"County": str})
+df = pd.read_csv("data/TB.csv", dtype={"County": str})
 
 df = df.set_index('County')
 df = df.reindex(index=geodata['County'])
