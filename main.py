@@ -21,18 +21,24 @@ mapbox_access_token = "pk.eyJ1IjoidGhlY29vbGR1bXAiLCJhIjoiY2txZjBieGl6MTlhNDJwbm
 geodata_path = 'data/' + 'map_points.csv'
 geodata = pd.read_csv(geodata_path, dtype={"County": str})
 
-df = pd.read_csv("data/TB.csv", dtype={"County": str})
+df = pd.read_csv("data/HIV.csv", dtype={"County": str}) # Путь до первого файла
 
 df = df.set_index('County')
 df = df.reindex(index=geodata['County'])
 df = df.reset_index()
+
+df_second = pd.read_csv("data/TB.csv", dtype={"County": str}) # Путь до второго файла (опционально)
+
+df_second = df_second.set_index('County')
+df_second = df_second.reindex(index=geodata['County'])
+df_second = df_second.reset_index()
 
 figScatter = go.Scattermapbox(
     lat=[geodata.lat[i] for i in range(geodata.shape[0])],
     lon=[geodata.lon[i] for i in range(geodata.shape[0])],
     marker=dict(size=5, color='black'),
     mode='markers+text',
-    text=[str(geodata['County'][i]) + '<br>' + str(df['Data'][i]) for i in range(geodata.shape[0])],  # .astype(str)
+    text=[str(geodata['County'][i]) + '<br>' + str(df['Data'][i]) + '|' + str(df_second['Data'][i]) for i in range(geodata.shape[0])],  #  Чтобы отображать один файл удалить все с момента "+ '|'"
     textfont=dict(size=16, color='black'),
     textposition="bottom center"
 )
